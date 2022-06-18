@@ -17,24 +17,28 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    build_matrix:
+      strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-12]
+   
+    runs-on: ${{ matrix.os }}
+
+    env: 
+      app_name: app_${{ runner.os }}_${{ github.run_number }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: Print env
-        run: env
       
       - name: Build
-        run: g++ hello.cpp -o app
+        run: g++ hello.cpp -o ${{ env.app_name }}
       
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: app
+          name: my-artifact-matrix
+          path: ${{ env.app_name }}
           retention-days: 5     
 
