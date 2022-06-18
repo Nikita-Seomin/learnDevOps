@@ -8,6 +8,6 @@ RUN g++ app.cpp -o app.exe
 #COPY --from=build APP/app.exe ./app.exe
 #CMD ./app.exe
 
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 COPY --from=build APP/app.exe ./app.exe
 CMD ./app.exe
