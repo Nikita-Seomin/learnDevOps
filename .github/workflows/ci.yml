@@ -36,5 +36,5 @@ jobs:
           echo test, and deploy your project.
 
       - name: Print egcc ver
-        run: |gcc -v 
+        run: gcc -v 
 
