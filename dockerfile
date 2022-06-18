@@ -1,5 +1,5 @@
 FROM gcc:11 AS build
-WORKDIR /app
+WORKDIR /APP
 COPY . .
 RUN g++ app.cpp -o app.exe 
 
