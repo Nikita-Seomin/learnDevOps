@@ -1,5 +1,13 @@
-FROM python:3
-#RUN apt update && apt install python3 -y && rm -rf /var/lib/apt/lists/*
-WORKDIR app
+FROM gcc:11 AS build
+WORKDIR /app
 COPY . .
-ENTRYPOINT ["python3", "app.py"]
+RUN g++ app.cpp -o app.exe 
+
+#FROM alpine:3.15
+#RUN apk add --no-cache libstdc++
+#COPY --from=build APP/app.exe ./app.exe
+#CMD ./app.exe
+
+FROM ubuntu:22.04
+COPY --from=build APP/app.exe ./app.exe
+CMD ./app.exe
