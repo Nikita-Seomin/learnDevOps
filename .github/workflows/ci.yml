@@ -34,10 +34,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
+      
+      #adasdasdasdadw
       - name: Print egcc ver
         run: gcc -v 
-
+      
+      #qqqqq
         - name: 'Upload Artifact'
         - uses: actions/upload-artifact@v3
           with:
