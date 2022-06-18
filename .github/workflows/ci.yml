@@ -16,9 +16,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    build_matrix:
-      strategy:
+  build_matrix:
+    strategy:
       matrix:
         os: [ubuntu-20.04, macos-12]
    
