@@ -22,7 +22,7 @@ jobs:
         os: [ubuntu-20.04, macos-12]
     runs-on: ${{ matrix.os }}
     env:
-      app_name: app_${{ runner.os }}_${{ github.run_number }}
+      app_name: app_${{ matrix.os }}_${{ github.run_number }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
