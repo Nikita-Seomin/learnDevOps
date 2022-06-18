@@ -29,12 +29,12 @@ jobs:
         run: env
       
       - name: Build
-        run: g++ hello.cpp -o app.exe
+        run: g++ hello.cpp -o app
       
-        - name: 'Upload Artifact'
-          uses: actions/upload-artifact@v3
-          with:
-            name: my-artifact
-            path: app.exe
-            retention-days: 5     
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: app
+          retention-days: 5     
 
